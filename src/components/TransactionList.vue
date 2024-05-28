@@ -1,6 +1,7 @@
 <script setup>
-import { defineProps } from 'vue';
+import { defineProps, defineEmits } from 'vue';
 
+const emit = defineEmits(['transactionDeleted']);
 defineProps({
     transactions: {
         type: Array,
@@ -9,7 +10,7 @@ defineProps({
 });
 
 const deleteTransaction = (id) => {
-    transactions.value = transactions.value.filter((transaction) => transaction.id !== id);
+    emit('transactionDeleted', id);
 }
 </script>
 

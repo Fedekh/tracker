@@ -51,6 +51,11 @@ const handleTransactionSubmited = (transactionData) => {
   toast.success('Transaction added!');
 }
 
+const handleTransactionDeleted = (id) => {
+  transactions.value = transactions.value.filter((transaction) => transaction.id !== id);
+  toast.success('Transaction deleted!');
+}
+
 </script>
 
 <template>
@@ -59,7 +64,7 @@ const handleTransactionSubmited = (transactionData) => {
     <div class="container">
       <Balance :total="+total" />
       <IncomeExpense :income="+income" :expense="+expense" />
-      <TransactionList :transactions />
+      <TransactionList :transactions @transactionDeleted="handleTransactionDeleted" />
       <AddTransaction @transactionSubmitted="handleTransactionSubmited" />
     </div>
   </div>
