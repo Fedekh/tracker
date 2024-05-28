@@ -49,6 +49,7 @@ h4 {
   display: flex;
   justify-content: space-between;
   margin: 20px 0;
+  color: #292828;
 }
 
 .inc-exp-container>div {
